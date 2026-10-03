@@ -1,10 +1,8 @@
 import React from 'react';
-import { BadgeCheck, Eye, Wrench, ShieldCheck, Gamepad2, MessageCircle } from 'lucide-react';
+import { BadgeCheck, Eye, Wrench, ShieldCheck, Gamepad2 } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { HudFrame } from '../ui/HudFrame';
-import { Button } from '../ui/Button';
 import { useMode } from '../../context/ModeContext';
-import { WHATSAPP_URL } from '../../design/tokens';
 
 export function Expert() {
   const { mode } = useMode();

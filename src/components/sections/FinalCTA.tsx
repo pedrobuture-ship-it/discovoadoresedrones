@@ -1,9 +1,6 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
 import { Section } from '../ui/Section';
-import { Button } from '../ui/Button';
 import { useMode } from '../../context/ModeContext';
-import { WHATSAPP_URL } from '../../design/tokens';
 
 export function FinalCTA() {
   const { mode } = useMode();
