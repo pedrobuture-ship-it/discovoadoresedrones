@@ -18,16 +18,6 @@ export function FinalCTA() {
         <h2 className="font-display font-700 text-3xl sm:text-5xl text-white mb-10 leading-tight">
           {title}
         </h2>
-        <Button 
-          href={WHATSAPP_URL[mode]} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          icon={<MessageCircle className="w-5 h-5" />}
-          pulse
-          className="w-full sm:w-auto"
-        >
-          Fazer Orçamento pelo WhatsApp
-        </Button>
       </div>
     </Section>
   );

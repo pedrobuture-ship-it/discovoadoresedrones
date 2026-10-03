@@ -68,17 +68,6 @@ export function Expert() {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-line/60">
-            <Button 
-              href={WHATSAPP_URL[mode]} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              icon={<MessageCircle className="w-5 h-5" />}
-              pulse
-            >
-              Falar direto com o técnico
-            </Button>
-          </div>
         </div>
 
       </HudFrame>
