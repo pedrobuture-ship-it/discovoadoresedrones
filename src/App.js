@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { ModelLoader } from './components/three/ModelLoader';
+import { ModeTransition } from './components/ModeTransition';
+import { Header } from './components/layout/Header';
+import { Hero } from './components/sections/Hero';
+import { Services } from './components/sections/Services';
+import { HowItWorks } from './components/sections/HowItWorks';
+import { Expert } from './components/sections/Expert';
+import { FinalCTA } from './components/sections/FinalCTA';
+import { WhatsAppFloat } from './components/sections/WhatsAppFloat';
+import { Footer } from './components/layout/Footer';
+import { useReveal } from './hooks/useReveal';
 
 function App() {
+  useReveal();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App min-h-screen">
+      <ModeTransition />
+      <Header />
+      <main>
+        <Hero />
+        <Services />
+        <HowItWorks />
+        <Expert />
+        <FinalCTA />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+      <ModelLoader />
     </div>
   );
 }
