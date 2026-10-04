@@ -7,7 +7,7 @@ import { CONTACT } from '../../design/tokens';
 const NAV = [
   { href: '#servicos', label: 'Serviços' },
   { href: '#como-funciona', label: 'Como Funciona' },
-  { href: '#sobre', label: 'Especialista' },
+  { href: '#sobre', label: 'Especialistas' },
 ];
 
 export function Footer() {
