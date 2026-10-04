@@ -45,16 +45,49 @@ const CONTROLLERS = [
 export function ControleServicesLayout() {
   const [activePlatform, setActivePlatform] = useState<string | null>(null);
 
+  const scrollToPlatform = (e: React.MouseEvent<HTMLAnchorElement>, platformId: string) => {
+    e.preventDefault();
+    const el = document.getElementById(platformId);
+    if (el) {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <div className="grid lg:grid-cols-2 items-start gap-6 stagger">
-      {CONTROLLERS.map((ctrl) => (
-        <ControllerCard 
-          key={ctrl.platform} 
-          {...ctrl} 
-          isActive={activePlatform === ctrl.platform}
-          onBecomeActive={() => setActivePlatform(ctrl.platform)}
-        />
-      ))}
+    <div className="flex flex-col gap-8">
+      {/* Quick Navigation Tags */}
+      <div className="flex flex-wrap justify-center gap-3 reveal">
+        {CONTROLLERS.map(ctrl => {
+          const id = `card-${ctrl.platform.replace(/\W+/g, '-').toLowerCase()}`;
+          return (
+            <a
+              key={ctrl.platform}
+              href={`#${id}`}
+              onClick={(e) => scrollToPlatform(e, id)}
+              className="px-5 py-2 rounded-full border border-line bg-bg-900/40 text-sm font-display font-600 text-slate-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-400 backdrop-blur-sm shadow-sm"
+            >
+              {ctrl.platform}
+            </a>
+          );
+        })}
+      </div>
+
+      {/* Grid of Controllers */}
+      <div className="grid lg:grid-cols-2 items-start gap-6 stagger">
+        {CONTROLLERS.map((ctrl) => {
+          const id = `card-${ctrl.platform.replace(/\W+/g, '-').toLowerCase()}`;
+          return (
+            <div key={ctrl.platform} id={id} className="scroll-mt-28">
+              <ControllerCard 
+                {...ctrl} 
+                isActive={activePlatform === ctrl.platform}
+                onBecomeActive={() => setActivePlatform(ctrl.platform)}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
