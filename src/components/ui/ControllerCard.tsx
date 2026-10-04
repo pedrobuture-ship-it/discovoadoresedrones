@@ -61,14 +61,14 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
   const isOpen = selected !== null;
 
   return (
-    <div className="reveal flex flex-col hud-frame bg-bg-900/40 overflow-hidden hover:bg-bg-900/60 transition-all">
+    <div className="reveal flex flex-col border border-cyan-500/30 bg-slate-900/50 rounded-2xl p-4 sm:p-6 hover:border-cyan-400 transition-colors duration-300">
       {/* 3D Area — modelo auto-enquadrado (centralizado + tamanho normalizado) */}
-      <div className="h-48 sm:h-56 relative overflow-hidden bg-gradient-to-b from-bg-900 to-transparent pointer-events-none">
+      <div className="h-48 sm:h-56 relative overflow-hidden bg-gradient-to-b from-bg-900 to-transparent pointer-events-none rounded-xl mb-2 sm:mb-4">
         <ModelViewer modelPath={modelPath} fitSize={2.2} scale={scale} autoRotate={true} />
       </div>
 
       {/* Content */}
-      <div className="p-5 flex-1 flex flex-col border-t border-line/50">
+      <div className="flex-1 flex flex-col border-t border-line/50 pt-5">
         <div className="flex items-center justify-between gap-3 mb-5 pb-4 border-b border-line/30">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded bg-cyan-400/10 flex items-center justify-center">
