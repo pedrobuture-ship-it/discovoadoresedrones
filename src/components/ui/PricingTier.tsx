@@ -31,7 +31,7 @@ export function PricingTier({ title, price, isPremium, desc1, desc2, highlightDe
         ${selected ? `${active} -translate-y-0.5` : `${base} hover:-translate-y-0.5`}`}
     >
       <span
-        className={`inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-full border font-mono text-[9px] tracking-widest uppercase
+        className={`inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-full border font-mono text-[9px] font-medium tracking-wider uppercase
           ${isPremium
             ? 'border-blue-400/30 bg-blue-500/10 text-blue-300'
             : 'border-cyan-400/25 bg-cyan-400/[0.08] text-cyan-300'}`}
@@ -40,7 +40,7 @@ export function PricingTier({ title, price, isPremium, desc1, desc2, highlightDe
         Serviço de Analógico
       </span>
       <div className="flex items-center justify-between mb-2 gap-3">
-        <div className={`flex items-center gap-2 font-display font-700 text-sm ${isPremium ? 'text-yellow-400' : 'text-slate-200'}`}>
+        <div className={`flex items-center gap-2 font-display font-bold text-sm ${isPremium ? 'text-yellow-400' : 'text-slate-200'}`}>
           {/* Indicador de seleção */}
           <span
             className={`flex items-center justify-center w-4 h-4 rounded-full border transition-all duration-200 shrink-0
@@ -53,15 +53,15 @@ export function PricingTier({ title, price, isPremium, desc1, desc2, highlightDe
           {isPremium && <Crown className="w-4 h-4 text-yellow-400" />}
           {title}
         </div>
-        <span className={`font-mono text-xs tracking-wider ${isPremium ? 'text-blue-400' : 'text-cyan-400'}`}>
+        <span className={`font-mono text-xs tracking-wider font-bold text-white`}>
           {price}
         </span>
       </div>
-      <p className={`text-[11px] font-mono tracking-tight mb-1.5 ${highlightDesc ? 'text-cyan-400' : 'text-slate-400'}`}>
+      <p className={`text-[11px] font-mono tracking-tight font-light mb-1.5 ${highlightDesc ? 'text-cyan-400' : 'text-gray-400'}`}>
         {desc1}
       </p>
-      <div className="flex items-start gap-1.5 text-xs text-slate-500">
-        <Wrench className="w-3.5 h-3.5 shrink-0 mt-0.5 text-slate-600" />
+      <div className="flex items-start gap-1.5 text-xs font-light text-gray-400">
+        <Wrench className="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-70" />
         <span className="leading-tight">{desc2}</span>
       </div>
     </button>

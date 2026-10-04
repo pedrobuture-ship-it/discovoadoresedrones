@@ -41,7 +41,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
   return (
     <div className="mt-3 rounded-md border border-dashed border-line/70 bg-bg-900/40 p-4 transition-colors hover:border-cyan-400/30">
       <div className="flex items-start justify-between gap-3 mb-1.5">
-        <div className="flex items-center gap-2 font-display font-700 text-sm text-slate-200">
+        <div className="flex items-center gap-2 font-display font-bold text-sm text-slate-200">
           <PlusCircle className="w-4 h-4 text-cyan-400 shrink-0" />
           Outros Defeitos / Reparos Adicionais
         </div>
