@@ -22,7 +22,7 @@ export function ModeToggle({ compact = false }: { compact?: boolean }) {
   ];
 
   return (
-    <div className="hud-frame relative inline-flex items-center p-1 border border-cyan-400/40 bg-bg-900 rounded-md">
+    <div className="hud-frame relative inline-flex items-center p-1 border border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/40 bg-white dark:bg-bg-900 rounded-md">
       {/* Active Indicator Background */}
       <div 
         className="absolute top-1 bottom-1 bg-cyan-400 rounded transition-transform duration-300 ease-out"
@@ -45,7 +45,7 @@ export function ModeToggle({ compact = false }: { compact?: boolean }) {
               className={`
                 relative flex items-center justify-center font-display font-700 transition-colors w-1/2
                 ${compact ? 'gap-1.5 px-2.5 py-1.5 text-[11px] tracking-wide' : 'gap-2 px-6 py-2.5 text-sm'}
-                ${isActive ? 'text-bg-950 glow-text' : 'text-slate-400 hover:text-cyan-300'}
+                ${isActive ? 'text-bg-950 glow-text' : 'text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:text-cyan-300'}
               `}
             >
               <Icon className={compact ? 'w-3.5 h-3.5' : 'w-4 h-4'} />

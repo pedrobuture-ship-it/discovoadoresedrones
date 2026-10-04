@@ -16,9 +16,9 @@ const base =
 
 const variants = {
   primary:
-    'bg-wa hover:bg-[#1fb958] text-white shadow-xl shadow-wa/25',
+    'bg-wa hover:bg-[#1fb958] text-slate-900 dark:text-white shadow-xl shadow-wa/25',
   secondary:
-    'border border-line hover:border-cyan-400/50 text-slate-200 ' +
+    'border border-slate-200 dark:border-line hover:border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/50 text-slate-800 dark:text-slate-200 ' +
     'font-600 hover:-translate-y-0',
 };
 

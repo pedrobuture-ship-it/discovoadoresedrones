@@ -18,17 +18,17 @@ export function DroneServicesLayout() {
     <div className="flex flex-col lg:flex-row gap-8 w-full">
       {/* Esquerda: 3D HUD (Fica no topo no Mobile) */}
       <div className="w-full lg:w-5/12 reveal h-[350px] lg:h-auto order-1">
-        <HudFrame className="border-none bg-bg-900/20 rounded-lg p-6 overflow-hidden h-full flex flex-col relative">
+        <HudFrame className="border-none bg-white dark:bg-bg-900/20 rounded-lg p-6 overflow-hidden h-full flex flex-col relative">
           <div className="flex-1 relative w-full h-full pointer-events-none -mt-8">
             <ModelViewer modelPath="/models/drone2.glb" scale={1.8} autoRotate />
           </div>
           
           {/* Tag inferior */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-bg-950/80 backdrop-blur-md border border-cyan-400/20 px-4 py-2 rounded-lg z-10">
-            <div className="w-8 h-8 rounded bg-cyan-400/10 flex items-center justify-center">
-              <Plane className="w-4 h-4 text-cyan-400" />
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-slate-50 dark:bg-bg-950/80 backdrop-blur-md border border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/20 px-4 py-2 rounded-lg z-10">
+            <div className="w-8 h-8 rounded bg-cyan-500/10 dark:bg-cyan-400/10 flex items-center justify-center">
+              <Plane className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
             </div>
-            <span className="font-display font-700 text-lg text-white whitespace-nowrap">DJI Drone</span>
+            <span className="font-display font-700 text-lg text-slate-900 dark:text-white whitespace-nowrap">DJI Drone</span>
           </div>
         </HudFrame>
       </div>
@@ -38,19 +38,19 @@ export function DroneServicesLayout() {
         {DRONE_SERVICES.map(s => <ServiceCard key={s.title} {...s} />)}
         
         {/* CTA Card no grid */}
-        <div className="reveal hud-frame h-full bg-bg-900/40 p-6 flex flex-col justify-between items-start text-left hover:bg-bg-900/60 transition-colors">
+        <div className="reveal hud-frame h-full bg-white dark:bg-bg-900/40 p-6 flex flex-col justify-between items-start text-left hover:bg-white dark:bg-bg-900/60 transition-colors">
           <div className="w-full">
-            <div className="w-11 h-11 rounded-md bg-cyan-400/15 flex items-center justify-center mb-5">
-              <Search className="w-5 h-5 text-cyan-400" />
+            <div className="w-11 h-11 rounded-md bg-cyan-500/15 dark:bg-cyan-400/15 flex items-center justify-center mb-5">
+              <Search className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
             </div>
-            <h3 className="font-display font-700 text-lg text-white">Não sabe qual é o problema?</h3>
-            <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+            <h3 className="font-display font-700 text-lg text-slate-900 dark:text-white">Não sabe qual é o problema?</h3>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Envie fotos ou vídeos do defeito pelo WhatsApp e receba um diagnóstico inicial sem compromisso.
             </p>
           </div>
           <a
             href={WHATSAPP_URL['drones']} target="_blank" rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 font-display font-700 text-sm text-cyan-300 hover:text-cyan-200 transition-colors group"
+            className="mt-5 inline-flex items-center gap-2 font-display font-700 text-sm text-cyan-600 dark:text-cyan-300 hover:text-cyan-200 transition-colors group"
           >
             Enviar diagnóstico <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>

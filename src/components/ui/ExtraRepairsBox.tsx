@@ -41,14 +41,14 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
     : `Olá! Tenho um controle de ${platform} e preciso de um orçamento para outros defeitos.`;
 
   return (
-    <div className="mt-3 rounded-md border border-dashed border-line/70 bg-bg-900/40 p-4 transition-colors hover:border-cyan-400/30">
+    <div className="mt-3 rounded-md border border-dashed border-slate-200 dark:border-line/70 bg-white dark:bg-bg-900/40 p-4 transition-colors hover:border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/30">
       <button 
         type="button" 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between gap-3 mb-1.5 focus:outline-none group"
       >
-        <div className="flex items-center gap-2 font-display font-bold text-sm text-slate-200">
-          <PlusCircle className="w-4 h-4 text-cyan-400 shrink-0" />
+        <div className="flex items-center gap-2 font-display font-bold text-sm text-slate-800 dark:text-slate-200">
+          <PlusCircle className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
           Outros Defeitos / Reparos Adicionais
         </div>
         
@@ -58,7 +58,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
               Clique para expandir
             </span>
           )}
-          <span className="shrink-0 font-mono text-[10px] tracking-wider text-cyan-400 uppercase pt-0.5">
+          <span className="shrink-0 font-mono text-[10px] tracking-wider text-cyan-600 dark:text-cyan-400 uppercase pt-0.5">
             Sob Consulta
           </span>
           <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
@@ -73,7 +73,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
       >
         <div className="overflow-hidden">
           <div className="pt-2">
-            <p className="text-[11px] font-mono tracking-tight text-slate-400 mb-3">
+            <p className="text-[11px] font-mono tracking-tight text-slate-600 dark:text-slate-400 mb-3">
               Selecione os problemas adicionais que seu controle apresenta:
             </p>
 
@@ -98,7 +98,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
                     <span
                       className={`mt-0.5 flex items-center justify-center w-4 h-4 rounded-[3px] border shrink-0 transition-all duration-200
                         peer-focus-visible:ring-2 peer-focus-visible:ring-cyan-400/60
-                        ${isOn ? 'bg-cyan-400 border-cyan-400' : 'border-slate-600 group-hover:border-cyan-400/60'}`}
+                        ${isOn ? 'bg-cyan-400 border-cyan-600 dark:border-cyan-500 dark:border-cyan-400' : 'border-slate-600 group-hover:border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/60'}`}
                     >
                       <Check
                         className={`w-3 h-3 text-bg-950 transition-transform duration-200 ${isOn ? 'scale-100' : 'scale-0'}`}
@@ -106,7 +106,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
                       />
                     </span>
                     <span className="leading-tight flex-1 text-left">
-                      <span className={`block text-xs ${isOn ? 'text-white' : 'text-slate-300'}`}>{o.label}</span>
+                      <span className={`block text-xs ${isOn ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300'}`}>{o.label}</span>
                       <span className="block text-[11px] text-slate-500 mt-0.5">{o.hint}</span>
                     </span>
                   </label>

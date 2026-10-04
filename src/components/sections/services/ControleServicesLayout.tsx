@@ -65,7 +65,7 @@ export function ControleServicesLayout() {
               key={ctrl.platform}
               href={`#${id}`}
               onClick={(e) => scrollToPlatform(e, id)}
-              className="px-5 py-2 rounded-full border border-line bg-bg-900/40 text-sm font-display font-600 text-slate-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-400 backdrop-blur-sm shadow-sm"
+              className="px-5 py-2 rounded-full border border-slate-200 dark:border-line bg-white dark:bg-bg-900/40 text-sm font-display font-600 text-slate-700 dark:text-slate-300 transition-colors hover:border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/50 hover:text-cyan-600 dark:text-cyan-400 backdrop-blur-sm shadow-sm"
             >
               {ctrl.platform}
             </a>

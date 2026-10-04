@@ -41,7 +41,7 @@ function LoaderHTML() {
   
   return (
     <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-      <div className="flex items-center gap-2 font-mono text-xs text-cyan-400 uppercase tracking-widest whitespace-nowrap bg-bg-950/80 px-4 py-2 rounded-md border border-cyan-400/20 backdrop-blur-sm shadow-xl shadow-cyan-400/10">
+      <div className="flex items-center gap-2 font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-widest whitespace-nowrap bg-slate-50 dark:bg-bg-950/80 px-4 py-2 rounded-md border border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/20 backdrop-blur-sm shadow-xl shadow-cyan-500/10 dark:shadow-cyan-400/10">
         <StatusDot /> CARREGANDO MODELO...
       </div>
     </div>
@@ -71,10 +71,10 @@ export function ModelViewer({
       <LoaderHTML />
       
       <div 
-        className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 bg-bg-950/70 border border-line/50 rounded-full px-3 py-1.5 transition-opacity duration-500 ${hasInteracted ? 'opacity-0' : 'opacity-100'}`}
+        className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 bg-slate-50 dark:bg-bg-950/70 border border-slate-200 dark:border-line/50 rounded-full px-3 py-1.5 transition-opacity duration-500 ${hasInteracted ? 'opacity-0' : 'opacity-100'}`}
       >
-        <Hand className="w-4 h-4 text-cyan-400 animate-pulse" />
-        <span className="text-xs font-mono tracking-wide text-slate-300">Arraste para girar</span>
+        <Hand className="w-4 h-4 text-cyan-600 dark:text-cyan-400 animate-pulse" />
+        <span className="text-xs font-mono tracking-wide text-slate-700 dark:text-slate-300">Arraste para girar</span>
       </div>
 
       <Canvas

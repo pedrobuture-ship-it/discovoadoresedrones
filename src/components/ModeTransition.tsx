@@ -38,7 +38,7 @@ export function ModeTransition() {
 
   return (
     <div 
-      className={`fixed inset-0 z-[60] bg-bg-950/90 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity ease-in-out ${
+      className={`fixed inset-0 z-[60] bg-slate-50 dark:bg-bg-950/90 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity ease-in-out ${
         isFadingOut ? 'opacity-0 duration-[250ms]' : 'opacity-100 duration-150'
       }`}
     >
@@ -51,7 +51,7 @@ export function ModeTransition() {
         }} 
       />
 
-      <div className="flex items-center gap-3 font-mono text-cyan-400 text-lg sm:text-xl tracking-widest uppercase">
+      <div className="flex items-center gap-3 font-mono text-cyan-600 dark:text-cyan-400 text-lg sm:text-xl tracking-widest uppercase">
         <StatusDot /> CARREGANDO MODO {displayMode}...
       </div>
     </div>
