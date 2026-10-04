@@ -61,9 +61,9 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
   const isOpen = selected !== null;
 
   return (
-    <div className="reveal flex flex-col border border-cyan-600 dark:border-cyan-500/30 bg-slate-900/50 rounded-2xl p-4 sm:p-6 hover:border-cyan-600 dark:border-cyan-500 dark:border-cyan-400 transition-colors duration-300">
+    <div className="reveal flex flex-col border border-slate-200 dark:border-cyan-500/30 bg-white dark:bg-slate-900/50 rounded-2xl p-4 sm:p-6 hover:border-cyan-500 dark:hover:border-cyan-400 transition-colors duration-300">
       {/* 3D Area — modelo auto-enquadrado (centralizado + tamanho normalizado) */}
-      <div className="h-48 sm:h-56 relative overflow-hidden bg-gradient-to-b from-bg-900 to-transparent pointer-events-none rounded-xl mb-2 sm:mb-4">
+      <div className="h-48 sm:h-56 relative overflow-hidden bg-slate-50 dark:bg-transparent dark:bg-gradient-to-b dark:from-bg-900 dark:to-transparent border border-slate-200 dark:border-transparent pointer-events-none rounded-xl mb-2 sm:mb-4">
         <ModelViewer modelPath={modelPath} fitSize={2.2} scale={scale} autoRotate={true} />
       </div>
 
@@ -105,7 +105,7 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
                   aria-hidden={!isThisSelected}
                 >
                   <div className="overflow-hidden">
-                    <div className="relative rounded-md border border-wa/40 bg-gradient-to-br from-wa/[0.12] via-slate-100 dark:via-bg-900/80 to-slate-100 dark:to-bg-900/80 p-4 overflow-hidden">
+                    <div className="relative rounded-md border border-cyan-500/20 dark:border-wa/40 bg-slate-50 dark:bg-gradient-to-br dark:from-wa/[0.12] dark:via-bg-900/80 dark:to-bg-900/80 p-4 overflow-hidden">
                       {/* scan sutil */}
                       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-wa/70 to-transparent" />
 

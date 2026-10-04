@@ -71,10 +71,10 @@ export function ModelViewer({
       <LoaderHTML />
       
       <div 
-        className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 bg-slate-50 dark:bg-bg-950/70 border border-slate-200 dark:border-line/50 rounded-full px-3 py-1.5 transition-opacity duration-500 ${hasInteracted ? 'opacity-0' : 'opacity-100'}`}
+        className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 bg-white dark:bg-bg-950/70 shadow-md dark:shadow-none border border-slate-200 dark:border-line/50 rounded-full px-3 py-1.5 transition-opacity duration-500 ${hasInteracted ? 'opacity-0' : 'opacity-100'}`}
       >
         <Hand className="w-4 h-4 text-cyan-600 dark:text-cyan-400 animate-pulse" />
-        <span className="text-xs font-mono tracking-wide text-slate-700 dark:text-slate-300">Arraste para girar</span>
+        <span className="text-xs font-mono tracking-wide text-slate-800 dark:text-slate-300">Arraste para girar</span>
       </div>
 
       <Canvas

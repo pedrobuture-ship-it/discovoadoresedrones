@@ -19,7 +19,7 @@ export function PricingTier({ title, price, isPremium, desc1, desc2, highlightDe
 
   const active = isPremium
     ? 'border-blue-400 bg-gradient-to-r from-blue-500/20 to-blue-500/5 shadow-[0_0_18px_rgba(59,130,246,0.25)]'
-    : 'border-cyan-600 dark:border-cyan-500 dark:border-cyan-400 bg-cyan-400/[0.07] shadow-[0_0_18px_rgba(34,211,238,0.18)]';
+    : 'border-cyan-500 dark:border-cyan-400 bg-cyan-50 dark:bg-cyan-400/[0.07] shadow-[0_0_18px_rgba(6,182,212,0.15)] dark:shadow-[0_0_18px_rgba(34,211,238,0.18)]';
 
   return (
     <button

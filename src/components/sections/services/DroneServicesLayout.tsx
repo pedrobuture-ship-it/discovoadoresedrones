@@ -18,13 +18,13 @@ export function DroneServicesLayout() {
     <div className="flex flex-col lg:flex-row gap-8 w-full">
       {/* Esquerda: 3D HUD (Fica no topo no Mobile) */}
       <div className="w-full lg:w-5/12 reveal h-[350px] lg:h-auto order-1">
-        <HudFrame className="border-none bg-white dark:bg-bg-900/20 rounded-lg p-6 overflow-hidden h-full flex flex-col relative">
+        <HudFrame className="border border-slate-200 dark:border-none bg-slate-50 dark:bg-bg-900/20 rounded-lg p-6 overflow-hidden h-full flex flex-col relative">
           <div className="flex-1 relative w-full h-full pointer-events-none -mt-8">
             <ModelViewer modelPath="/models/drone2.glb" scale={1.8} autoRotate />
           </div>
           
           {/* Tag inferior */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-slate-50 dark:bg-bg-950/80 backdrop-blur-md border border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/20 px-4 py-2 rounded-lg z-10">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/80 dark:bg-bg-950/80 backdrop-blur-md border border-cyan-600 dark:border-cyan-500 dark:border-cyan-400/20 px-4 py-2 rounded-lg z-10">
             <div className="w-8 h-8 rounded bg-cyan-500/10 dark:bg-cyan-400/10 flex items-center justify-center">
               <Plane className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
             </div>
@@ -38,7 +38,7 @@ export function DroneServicesLayout() {
         {DRONE_SERVICES.map(s => <ServiceCard key={s.title} {...s} />)}
         
         {/* CTA Card no grid */}
-        <div className="reveal hud-frame h-full bg-white dark:bg-bg-900/40 p-6 flex flex-col justify-between items-start text-left hover:bg-white dark:bg-bg-900/60 transition-colors">
+        <div className="reveal hud-frame h-full bg-white dark:bg-bg-900/40 border border-slate-200 dark:border-transparent p-6 flex flex-col justify-between items-start text-left hover:bg-slate-50 dark:hover:bg-bg-900/60 transition-colors">
           <div className="w-full">
             <div className="w-11 h-11 rounded-md bg-cyan-500/15 dark:bg-cyan-400/15 flex items-center justify-center mb-5">
               <Search className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />

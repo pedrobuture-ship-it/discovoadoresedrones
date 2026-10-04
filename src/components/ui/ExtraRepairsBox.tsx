@@ -86,7 +86,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
                     key={o.id}
                     htmlFor={inputId}
                     className={`group flex items-start gap-3 w-full rounded px-2 py-2 cursor-pointer transition-colors
-                      ${isOn ? 'bg-cyan-400/[0.06]' : 'hover:bg-white/[0.03]'}`}
+                      ${isOn ? 'bg-cyan-50 dark:bg-cyan-400/[0.06]' : 'hover:bg-slate-50 dark:hover:bg-white/[0.03]'}`}
                   >
                     <input
                       id={inputId}
