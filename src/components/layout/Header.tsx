@@ -10,7 +10,6 @@ const NAV = [
   { href: '#servicos', label: 'Serviços' },
   { href: '#como-funciona', label: 'Como Funciona' },
   { href: '#sobre', label: 'Especialista' },
-  { href: '#contato', label: 'Contato' },
 ];
 
 export function Header() {
