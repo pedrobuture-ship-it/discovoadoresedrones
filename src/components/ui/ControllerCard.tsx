@@ -65,7 +65,7 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props)
           </span>
         </div>
 
-        <div className="flex flex-col gap-3 flex-1" role="group" aria-label={`Opções de reparo — ${platform}`}>
+        <div className="flex flex-col gap-3" role="group" aria-label={`Opções de reparo — ${platform}`}>
           {tiers.map((t, idx) => (
             <PricingTier
               key={idx}

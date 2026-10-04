@@ -98,19 +98,18 @@ export function ExtraRepairsBox({ platform }: Props) {
         })}
       </div>
 
-      <a
-        href={buildWhatsAppUrl(message)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-sm px-4 py-3 transition-all shadow-lg shadow-wa/20
-          ${hasSelection ? 'cta-pulse' : 'opacity-90'}`}
-      >
-        <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
-        Solicitar Orçamento no WhatsApp
-        {hasSelection && (
+      {selected.length > 0 && (
+        <a
+          href={buildWhatsAppUrl(message)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-pulse group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-sm px-4 py-3 transition-all shadow-lg shadow-wa/20"
+        >
+          <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
+          Solicitar Orçamento no WhatsApp
           <span className="ml-1 rounded-full bg-white/20 px-1.5 text-[10px] font-mono">{selected.length}</span>
-        )}
-      </a>
+        </a>
+      )}
     </div>
   );
 }

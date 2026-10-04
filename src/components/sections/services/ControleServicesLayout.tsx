@@ -44,7 +44,7 @@ const CONTROLLERS = [
 
 export function ControleServicesLayout() {
   return (
-    <div className="grid lg:grid-cols-2 gap-6 stagger">
+    <div className="grid lg:grid-cols-2 items-start gap-6 stagger">
       {CONTROLLERS.map((ctrl) => (
         <ControllerCard key={ctrl.platform} {...ctrl} />
       ))}
