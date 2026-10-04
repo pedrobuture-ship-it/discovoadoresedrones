@@ -60,7 +60,7 @@ export function Hero() {
           ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
         `}
       >
-        <div className="reveal stagger w-full lg:w-1/2 min-w-0">
+        <div className="reveal stagger w-full lg:w-1/2 min-w-0 flex flex-col items-center text-center lg:items-start lg:text-left">
           <div className="flex items-center gap-2 mb-6">
             <span className="shrink-0 flex"><StatusDot /></span>
             <span className="font-mono text-[11px] sm:text-xs tracking-wider sm:tracking-widest text-cyan-600 dark:text-cyan-400 uppercase break-words">
@@ -76,7 +76,7 @@ export function Hero() {
             {subText}
           </p>
 
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8">
             <a
               id="hero-ver-servicos"
               href="#servicos"
@@ -88,7 +88,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-2 sm:gap-4">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-4">
             {badges.map(badge => (
               <span key={badge} className="px-3 py-1.5 rounded-full border border-cyan-600/20 dark:border-cyan-400/20 bg-white/50 dark:bg-bg-900/50 text-xs font-mono text-cyan-600 dark:text-cyan-300 backdrop-blur-sm">
                 {badge}
