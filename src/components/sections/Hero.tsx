@@ -109,7 +109,9 @@ export function Hero() {
             </div>
 
             <div className="h-[180px] sm:h-[300px] lg:h-[350px] flex items-center justify-center my-4 relative pointer-events-none">
-               <img src="/ufo.svg" alt="UFO" className="w-full max-w-[200px] sm:max-w-[280px] lg:max-w-none lg:w-[70%] h-auto max-h-full mx-auto object-contain filter drop-shadow-[0_0_15px_rgba(6,182,212,0.4)] dark:drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-700 hover:scale-105" />
+               <div className="flex justify-center items-center bg-slate-900 dark:bg-transparent rounded-xl p-4 sm:p-6 border border-cyan-500/30 dark:border-transparent shadow-lg shadow-cyan-500/10 dark:shadow-none w-full max-w-[200px] sm:max-w-[280px] lg:max-w-none lg:w-[70%] mx-auto">
+                 <img src="/ufo.svg" alt="UFO" className="w-full h-auto max-h-full object-contain filter drop-shadow-[0_0_15px_rgba(6,182,212,0.4)] dark:drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-700 hover:scale-105" />
+               </div>
             </div>
 
             <div className="space-y-2.5 font-mono text-[11px] sm:text-xs mt-6">
