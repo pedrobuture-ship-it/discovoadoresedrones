@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Check, MessageCircle, PlusCircle } from 'lucide-react';
 import { buildWhatsAppUrl } from '../../design/tokens';
 
