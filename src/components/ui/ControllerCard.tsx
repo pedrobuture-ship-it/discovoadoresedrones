@@ -105,7 +105,7 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
                   aria-hidden={!isThisSelected}
                 >
                   <div className="overflow-hidden">
-                    <div className="relative rounded-md border border-cyan-500/20 dark:border-wa/40 bg-slate-50 dark:bg-gradient-to-br dark:from-wa/[0.12] dark:via-bg-900/80 dark:to-bg-900/80 p-4 overflow-hidden">
+                    <div className="relative rounded-md border border-cyan-500/20 dark:border-wa/30 bg-slate-50 dark:bg-slate-950 p-4 overflow-hidden">
                       {/* scan sutil */}
                       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-wa/70 to-transparent" />
 
