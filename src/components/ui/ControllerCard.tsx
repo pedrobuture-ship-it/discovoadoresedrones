@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Gamepad, MessageCircle, X, ShieldCheck } from 'lucide-react';
 import { ModelViewer } from '../three/ModelViewer';
 import { PricingTier } from './PricingTier';
+import { ExtraRepairsBox } from './ExtraRepairsBox';
 import { buildWhatsAppUrl } from '../../design/tokens';
 
 interface Tier {
@@ -131,6 +132,8 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props)
             )}
           </div>
         </div>
+
+        <ExtraRepairsBox platform={platform} />
       </div>
     </div>
   );
