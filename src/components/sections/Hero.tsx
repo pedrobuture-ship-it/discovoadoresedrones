@@ -1,10 +1,9 @@
 import React, { useState, useEffect, MouseEvent } from 'react';
-import { ArrowDown, MessageCircle } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { useMode } from '../../context/ModeContext';
 import { StatusDot } from '../ui/StatusDot';
 import { HudFrame } from '../ui/HudFrame';
 import { Particle } from '../ui/Particle';
-import { WHATSAPP_URL } from '../../design/tokens';
 
 function scrollToServices(e: MouseEvent<HTMLAnchorElement>) {
   const target = document.getElementById('servicos');
@@ -79,22 +78,13 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-8">
             <a
-              id="hero-whatsapp"
-              href={WHATSAPP_URL[displayMode]}
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-base px-6 py-3.5 transition-colors shadow-lg shadow-wa/20"
-            >
-              <MessageCircle className="w-5 h-5" />
-              {isDrones ? 'Orçamento Drone' : 'Orçamento Controle'}
-            </a>
-            <a
               id="hero-ver-servicos"
               href="#servicos"
               onClick={scrollToServices}
-              className="group inline-flex items-center justify-center gap-2 rounded-md border border-line bg-bg-900/50 hover:border-cyan-400/50 hover:text-cyan-300 text-slate-200 font-display font-600 text-base px-6 py-3.5 transition-colors backdrop-blur-sm"
+              className="group inline-flex items-center justify-center gap-2 rounded-md bg-cyan-400 hover:bg-cyan-300 text-bg-950 font-display font-700 text-lg px-8 py-4 transition-all shadow-lg shadow-cyan-400/20 w-full sm:w-auto"
             >
               Ver serviços
-              <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+              <ArrowDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
             </a>
           </div>
 
