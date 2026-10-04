@@ -61,7 +61,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
             <label
               key={o.id}
               htmlFor={inputId}
-              className={`group flex items-start gap-3 rounded px-2 py-2 cursor-pointer transition-colors
+              className={`group flex items-start gap-3 w-full rounded px-2 py-2 cursor-pointer transition-colors
                 ${isOn ? 'bg-cyan-400/[0.06]' : 'hover:bg-white/[0.03]'}`}
             >
               <input
@@ -81,7 +81,7 @@ export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
                   strokeWidth={3}
                 />
               </span>
-              <span className="leading-tight">
+              <span className="leading-tight flex-1 text-left">
                 <span className={`block text-xs ${isOn ? 'text-white' : 'text-slate-300'}`}>{o.label}</span>
                 <span className="block text-[11px] text-slate-500 mt-0.5">{o.hint}</span>
               </span>
