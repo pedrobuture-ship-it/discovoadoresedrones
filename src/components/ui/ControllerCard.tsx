@@ -46,6 +46,18 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
       setExtraRepairs(new Set());
     }
   }, [isActive]);
+
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (selected !== null && panelRef.current) {
+      const t = setTimeout(() => {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        panelRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+      }, 150);
+      return () => clearTimeout(t);
+    }
+  }, [selected]);
   // Mantém o conteúdo visível durante a animação de fechamento
   const lastSelected = useRef<number | null>(null);
   if (selected !== null) lastSelected.current = selected;
@@ -94,8 +106,9 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
 
         {/* Painel de confirmação — expande ao selecionar */}
         <div
+          ref={panelRef}
           className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${
-            isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
+            isOpen ? 'grid-rows-[1fr] opacity-100 mt-4 mb-4' : 'grid-rows-[0fr] opacity-0 mt-0 mb-0'
           }`}
           aria-hidden={!isOpen}
         >
@@ -139,7 +152,7 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
                   target="_blank"
                   rel="noopener noreferrer"
                   tabIndex={isOpen ? 0 : -1}
-                  className="cta-pulse group flex w-full items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-sm px-4 py-3 transition-colors shadow-lg shadow-wa/25"
+                  className="cta-pulse group flex w-full items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-sm px-4 py-4 transition-colors shadow-lg shadow-wa/25"
                 >
                   <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
                   Enviar essa seleção pelo WhatsApp
