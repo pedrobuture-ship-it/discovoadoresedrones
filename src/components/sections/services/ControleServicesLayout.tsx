@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ControllerCard } from '../../ui/ControllerCard';
 
 const CONTROLLERS = [
@@ -43,10 +43,17 @@ const CONTROLLERS = [
 ];
 
 export function ControleServicesLayout() {
+  const [activePlatform, setActivePlatform] = useState<string | null>(null);
+
   return (
     <div className="grid lg:grid-cols-2 items-start gap-6 stagger">
       {CONTROLLERS.map((ctrl) => (
-        <ControllerCard key={ctrl.platform} {...ctrl} />
+        <ControllerCard 
+          key={ctrl.platform} 
+          {...ctrl} 
+          isActive={activePlatform === ctrl.platform}
+          onBecomeActive={() => setActivePlatform(ctrl.platform)}
+        />
       ))}
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Gamepad, MessageCircle, X, ShieldCheck } from 'lucide-react';
 import { ModelViewer } from '../three/ModelViewer';
 import { PricingTier } from './PricingTier';
@@ -19,6 +19,8 @@ interface Props {
   modelPath: string;
   scale?: number;
   tiers: Tier[];
+  isActive?: boolean;
+  onBecomeActive?: () => void;
 }
 
 function buildMessage(platform: string, tier: Tier) {
@@ -34,9 +36,16 @@ function buildMessage(platform: string, tier: Tier) {
   ].join('\n');
 }
 
-export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props) {
+export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive = true, onBecomeActive }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
   const [extraRepairs, setExtraRepairs] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (!isActive) {
+      setSelected(null);
+      setExtraRepairs(new Set());
+    }
+  }, [isActive]);
   // Mantém o conteúdo visível durante a animação de fechamento
   const lastSelected = useRef<number | null>(null);
   if (selected !== null) lastSelected.current = selected;
@@ -73,6 +82,7 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props)
               {...t}
               selected={selected === idx}
               onSelect={() => {
+                onBecomeActive?.();
                 setSelected(prev => {
                   if (prev !== idx) setExtraRepairs(new Set());
                   return prev === idx ? null : idx;
@@ -143,6 +153,7 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props)
           platform={platform} 
           checked={extraRepairs}
           onToggle={(id) => {
+            onBecomeActive?.();
             setExtraRepairs(prev => {
               const next = new Set(prev);
               if (next.has(id)) next.delete(id);
