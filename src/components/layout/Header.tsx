@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useMobileMenu } from '../../hooks/useMobileMenu';
-import { WHATSAPP_URL } from '../../design/tokens';
 import { UfoLogo } from '../brand/UfoLogo';
 import { ModeToggle } from '../ModeToggle';
 import { useMode } from '../../context/ModeContext';
@@ -22,9 +21,6 @@ export function Header() {
     const t = setTimeout(() => setIsScanning(false), 300);
     return () => clearTimeout(t);
   }, [mode]);
-
-  const whatsappText = mode === 'drones' ? 'Orçamento Drone' : 'Orçamento Controle';
-  const whatsappUrl = WHATSAPP_URL[mode];
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-line/80 bg-bg-950/85 backdrop-blur-md overflow-hidden">
@@ -81,14 +77,6 @@ export function Header() {
               {label}
             </a>
           ))}
-          <a
-            href={whatsappUrl}
-            target="_blank" rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-wa text-white font-700 text-sm px-4 py-3"
-          >
-            <MessageCircle className="w-4 h-4" />
-            {whatsappText}
-          </a>
         </div>
       )}
     </header>
