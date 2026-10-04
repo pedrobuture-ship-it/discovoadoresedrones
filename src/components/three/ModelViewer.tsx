@@ -1,7 +1,8 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { Suspense, useMemo, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, ContactShadows, useGLTF, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
+import { Hand } from 'lucide-react';
 import { StatusDot } from '../ui/StatusDot';
 
 interface ModelProps {
@@ -51,7 +52,7 @@ interface ModelViewerProps {
   modelPath: string;
   scale?: number;
   position?: [number, number, number];
-  autoRotate?: boolean;
+  autoRotate?: boolean; // kept for backwards compatibility but ignored
   className?: string;
   fitSize?: number;
 }
@@ -60,24 +61,30 @@ export function ModelViewer({
   modelPath,
   scale = 1,
   position = [0, 0, 0],
-  autoRotate = false,
   className = '',
   fitSize
 }: ModelViewerProps) {
+  const [hasInteracted, setHasInteracted] = useState(false);
+
   return (
     <div className={`relative w-full h-full ${className}`}>
       <LoaderHTML />
+      
+      <div 
+        className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 bg-bg-950/70 border border-line/50 rounded-full px-3 py-1.5 transition-opacity duration-500 ${hasInteracted ? 'opacity-0' : 'opacity-100'}`}
+      >
+        <Hand className="w-4 h-4 text-cyan-400 animate-pulse" />
+        <span className="text-xs font-mono tracking-wide text-slate-300">Arraste para girar</span>
+      </div>
+
       <Canvas
         dpr={[1, 2]}
         camera={{ position: [0, 0, 4], fov: 45 }}
         gl={{ alpha: true }}
       >
         <ambientLight intensity={0.5} />
-        {/* cyan-400 à esquerda */}
         <directionalLight position={[-5, 2, 0]} color="#22d3ee" intensity={1.5} />
-        {/* branco frontal */}
         <directionalLight position={[0, 2, 5]} color="#ffffff" intensity={1} />
-        {/* blue-500 à direita */}
         <directionalLight position={[5, 2, 0]} color="#3b82f6" intensity={1.5} />
         
         <Suspense fallback={null}>
@@ -89,7 +96,8 @@ export function ModelViewer({
         <OrbitControls 
           enableZoom={false} 
           enablePan={false} 
-          autoRotate={autoRotate}
+          autoRotate={false}
+          onStart={() => setHasInteracted(true)}
         />
       </Canvas>
     </div>
