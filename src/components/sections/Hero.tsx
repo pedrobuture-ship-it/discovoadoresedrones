@@ -98,33 +98,33 @@ export function Hero() {
         </div>
 
         <div className="reveal relative w-full lg:w-1/2 min-w-0 mb-8 lg:mb-0">
-          <HudFrame className="border border-slate-200 dark:border-line/70 bg-white/70 dark:bg-bg-900/70 rounded-lg p-5 sm:p-8 overflow-hidden relative shadow-xl shadow-slate-200/50 dark:shadow-none">
+          <HudFrame className="border border-cyan-500/30 bg-slate-900 rounded-lg p-5 sm:p-8 overflow-hidden relative shadow-2xl shadow-cyan-900/20">
             <div className="scan-line" />
             
-            <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] sm:text-xs text-slate-500 mb-4 tracking-wider">
+            <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] sm:text-xs text-slate-400 mb-4 tracking-wider">
               <span>RELATÓRIO DE OCORRÊNCIA</span>
-              <span className="flex items-center gap-1.5 text-cyan-600 dark:text-cyan-300">
+              <span className="flex items-center gap-1.5 text-cyan-400">
                 <StatusDot /> ATIVO
               </span>
             </div>
 
             <div className="h-[180px] sm:h-[300px] lg:h-[350px] flex items-center justify-center my-4 relative pointer-events-none">
-               <img src="/ufo.svg" alt="UFO" className="w-full max-w-[200px] sm:max-w-[280px] lg:max-w-none lg:w-[70%] h-auto max-h-full mx-auto object-contain filter drop-shadow-[0_0_15px_rgba(6,182,212,0.4)] dark:drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-700 hover:scale-105" />
+               <img src="/ufo.svg" alt="UFO" className="w-full max-w-[200px] sm:max-w-[280px] lg:max-w-none lg:w-[70%] h-auto max-h-full mx-auto object-contain filter drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-700 hover:scale-105" />
             </div>
 
             <div className="space-y-2.5 font-mono text-[11px] sm:text-xs mt-6">
               {reportRows.map(([label, value]) => (
                 <div
                   key={label}
-                  className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 border-b border-slate-200 dark:border-line/60 pb-2 last:border-0 last:pb-0"
+                  className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 border-b border-cyan-500/20 pb-2 last:border-0 last:pb-0"
                 >
-                  <span className="text-slate-500 shrink-0">{label}</span>
-                  <span className="text-cyan-600 dark:text-cyan-300 text-right break-words min-w-0 ml-auto">{value}</span>
+                  <span className="text-slate-400 shrink-0">{label}</span>
+                  <span className="text-cyan-400 text-right break-words min-w-0 ml-auto">{value}</span>
                 </div>
               ))}
             </div>
 
-            <p className="mt-5 text-center text-xs text-slate-500 font-mono opacity-80">
+            <p className="mt-5 text-center text-xs text-slate-400 font-mono opacity-80">
               Para deixar bem claro: abduzimos apenas os problemas.
             </p>
           </HudFrame>
