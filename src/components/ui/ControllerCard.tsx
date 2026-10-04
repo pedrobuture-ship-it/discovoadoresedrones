@@ -36,6 +36,7 @@ function buildMessage(platform: string, tier: Tier) {
 
 export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
+  const [extraRepairs, setExtraRepairs] = useState<Set<string>>(new Set());
   // Mantém o conteúdo visível durante a animação de fechamento
   const lastSelected = useRef<number | null>(null);
   if (selected !== null) lastSelected.current = selected;
@@ -71,7 +72,12 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props)
               key={idx}
               {...t}
               selected={selected === idx}
-              onSelect={() => setSelected(prev => (prev === idx ? null : idx))}
+              onSelect={() => {
+                setSelected(prev => {
+                  if (prev !== idx) setExtraRepairs(new Set());
+                  return prev === idx ? null : idx;
+                });
+              }}
             />
           ))}
         </div>
@@ -133,7 +139,19 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers }: Props)
           </div>
         </div>
 
-        <ExtraRepairsBox platform={platform} />
+        <ExtraRepairsBox 
+          platform={platform} 
+          checked={extraRepairs}
+          onToggle={(id) => {
+            setExtraRepairs(prev => {
+              const next = new Set(prev);
+              if (next.has(id)) next.delete(id);
+              else next.add(id);
+              return next;
+            });
+            setSelected(null);
+          }}
+        />
       </div>
     </div>
   );

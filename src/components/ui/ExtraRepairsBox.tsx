@@ -4,6 +4,8 @@ import { buildWhatsAppUrl } from '../../design/tokens';
 
 interface Props {
   platform: string;
+  checked: Set<string>;
+  onToggle: (id: string) => void;
 }
 
 interface Option {
@@ -21,21 +23,11 @@ const OPTIONS: Option[] = [
   { id: 'bateria', label: 'Troca de Bateria', hint: 'Não segura carga', onlyFor: 'PlayStation 5' },
 ];
 
-export function ExtraRepairsBox({ platform }: Props) {
-  const [checked, setChecked] = useState<Set<string>>(new Set());
-
+export function ExtraRepairsBox({ platform, checked, onToggle }: Props) {
   const options = useMemo(
     () => OPTIONS.filter(o => !o.onlyFor || o.onlyFor === platform),
     [platform],
   );
-
-  const toggle = (id: string) =>
-    setChecked(prev => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
 
   const selected = options.filter(o => checked.has(o.id));
   const hasSelection = selected.length > 0;
@@ -77,7 +69,7 @@ export function ExtraRepairsBox({ platform }: Props) {
                 type="checkbox"
                 className="sr-only peer"
                 checked={isOn}
-                onChange={() => toggle(o.id)}
+                onChange={() => onToggle(o.id)}
               />
               <span
                 className={`mt-0.5 flex items-center justify-center w-4 h-4 rounded-[3px] border shrink-0 transition-all duration-200
