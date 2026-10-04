@@ -31,6 +31,7 @@ export function Services() {
         label="ESPECIALIDADE"
         title="Serviços de Reparo"
         description="Selecione a categoria do seu equipamento para ver as opções de reparo disponíveis."
+        centered={true}
       />
       <div 
         className={`mt-10 transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}

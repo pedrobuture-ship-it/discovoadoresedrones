@@ -4,11 +4,12 @@ interface Props {
   label: string;
   title: string;
   description?: string;
+  centered?: boolean;
 }
 
-export function SectionTitle({ label, title, description }: Props) {
+export function SectionTitle({ label, title, description, centered = false }: Props) {
   return (
-    <div className="reveal max-w-2xl mb-14">
+    <div className={`reveal max-w-2xl mb-14 ${centered ? 'mx-auto text-center' : ''}`}>
       <span className="font-mono text-xs tracking-widest text-cyan-400">
         {label}
       </span>
