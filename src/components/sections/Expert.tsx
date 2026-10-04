@@ -62,8 +62,8 @@ export function Expert() {
                   <TestIcon className="w-5 h-5 text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-display font-700 text-white text-lg">Formação de Excelência</h4>
-                  <p className="text-sm text-slate-400 mt-1">Melhor rendimento do curso de Eletrônica da UTFPR (2003).</p>
+                  <h4 className="font-display font-700 text-white text-lg">Experiência em Sistemas Críticos</h4>
+                  <p className="text-sm text-slate-400 mt-1">Mais de 20 anos em manutenção de redes de energia e telecomunicações.</p>
                 </div>
               </div>
             </div>
