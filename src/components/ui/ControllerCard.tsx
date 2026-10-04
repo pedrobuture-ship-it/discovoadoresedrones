@@ -58,12 +58,6 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
       return () => clearTimeout(t);
     }
   }, [selected]);
-  // Mantém o conteúdo visível durante a animação de fechamento
-  const lastSelected = useRef<number | null>(null);
-  if (selected !== null) lastSelected.current = selected;
-
-  const shown = selected ?? lastSelected.current;
-  const tier = shown !== null ? tiers[shown] : null;
   const isOpen = selected !== null;
 
   return (
@@ -88,78 +82,78 @@ export function ControllerCard({ platform, modelPath, scale = 1, tiers, isActive
         </div>
 
         <div className="flex flex-col gap-3" role="group" aria-label={`Opções de reparo — ${platform}`}>
-          {tiers.map((t, idx) => (
-            <PricingTier
-              key={idx}
-              {...t}
-              selected={selected === idx}
-              onSelect={() => {
-                onBecomeActive?.();
-                setSelected(prev => {
-                  if (prev !== idx) setExtraRepairs(new Set());
-                  return prev === idx ? null : idx;
-                });
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Painel de confirmação — expande ao selecionar */}
-        <div
-          ref={panelRef}
-          className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${
-            isOpen ? 'grid-rows-[1fr] opacity-100 mt-4 mb-4' : 'grid-rows-[0fr] opacity-0 mt-0 mb-0'
-          }`}
-          aria-hidden={!isOpen}
-        >
-          <div className="overflow-hidden">
-            {tier && (
-              <div className="relative rounded-md border border-wa/40 bg-gradient-to-br from-wa/[0.12] via-bg-900/80 to-bg-900/80 p-4 overflow-hidden">
-                {/* scan sutil */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-wa/70 to-transparent" />
-
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <div>
-                    <p className="font-mono text-[10px] tracking-widest text-wa uppercase flex items-center gap-1.5">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-wa animate-pulse" />
-                      Seleção pronta
-                    </p>
-                    <p className="mt-1.5 font-display font-700 text-white text-base leading-tight">
-                      {platform} · {tier.title}
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setSelected(null)}
-                    tabIndex={isOpen ? 0 : -1}
-                    className="shrink-0 w-7 h-7 rounded flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/5 transition-colors"
-                    aria-label="Limpar seleção"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-
-                <div className="flex items-center justify-between font-mono text-xs border-t border-line/40 pt-3 mb-4">
-                  <span className="flex items-center gap-1.5 text-slate-400">
-                    <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                    {tier.desc1}
-                  </span>
-                  <span className="text-white font-600 text-sm">{tier.price}</span>
-                </div>
-
-                <a
-                  href={buildWhatsAppUrl(buildMessage(platform, tier))}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  tabIndex={isOpen ? 0 : -1}
-                  className="cta-pulse group flex w-full items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-sm px-4 py-4 transition-colors shadow-lg shadow-wa/25"
+          {tiers.map((t, idx) => {
+            const isThisSelected = selected === idx;
+            return (
+              <React.Fragment key={idx}>
+                <PricingTier
+                  {...t}
+                  selected={isThisSelected}
+                  onSelect={() => {
+                    onBecomeActive?.();
+                    setSelected(prev => {
+                      if (prev !== idx) setExtraRepairs(new Set());
+                      return prev === idx ? null : idx;
+                    });
+                  }}
+                />
+                <div
+                  ref={isThisSelected ? panelRef : undefined}
+                  className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${
+                    isThisSelected ? 'grid-rows-[1fr] opacity-100 mt-1 mb-1' : 'grid-rows-[0fr] opacity-0 mt-0 mb-0'
+                  }`}
+                  aria-hidden={!isThisSelected}
                 >
-                  <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
-                  Enviar essa seleção pelo WhatsApp
-                </a>
-              </div>
-            )}
-          </div>
+                  <div className="overflow-hidden">
+                    <div className="relative rounded-md border border-wa/40 bg-gradient-to-br from-wa/[0.12] via-bg-900/80 to-bg-900/80 p-4 overflow-hidden">
+                      {/* scan sutil */}
+                      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-wa/70 to-transparent" />
+
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <div>
+                          <p className="font-mono text-[10px] tracking-widest text-wa uppercase flex items-center gap-1.5">
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-wa animate-pulse" />
+                            Seleção pronta
+                          </p>
+                          <p className="mt-1.5 font-display font-700 text-white text-base leading-tight">
+                            {platform} · {t.title}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setSelected(null)}
+                          tabIndex={isThisSelected ? 0 : -1}
+                          className="shrink-0 w-7 h-7 rounded flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/5 transition-colors"
+                          aria-label="Limpar seleção"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <div className="flex items-center justify-between font-mono text-xs border-t border-line/40 pt-3 mb-4">
+                        <span className="flex items-center gap-1.5 text-slate-400">
+                          <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+                          {t.desc1}
+                        </span>
+                        <span className="text-white font-600 text-sm">{t.price}</span>
+                      </div>
+
+                      <a
+                        href={buildWhatsAppUrl(buildMessage(platform, t))}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        tabIndex={isThisSelected ? 0 : -1}
+                        className="cta-pulse group flex w-full items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-sm px-4 py-4 transition-colors shadow-lg shadow-wa/25"
+                      >
+                        <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
+                        Enviar essa seleção pelo WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </React.Fragment>
+            );
+          })}
         </div>
 
         <ExtraRepairsBox 
