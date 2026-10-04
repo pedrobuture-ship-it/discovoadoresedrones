@@ -25,12 +25,12 @@ export function Expert() {
                </div>
             </div>
             
-            <div className="flex items-center gap-1.5 text-cyan-400 font-mono text-xs tracking-widest mb-3 uppercase">
-              <BadgeCheck className="w-4 h-4" /> TÉCNICO RESPONSÁVEL
+            <div className="flex items-center gap-1.5 text-cyan-400 font-mono text-[10px] sm:text-xs tracking-widest mb-3 uppercase text-left sm:text-left">
+              <BadgeCheck className="w-4 h-4 shrink-0" /> ESPECIALISTA EM ELETRÔNICA E TELECOM
             </div>
             <h2 className="font-display font-700 text-3xl text-white mb-4">Cliceu Buture de Oliveira</h2>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Responsável direto por cada diagnóstico e reparo — seja drone ou controle.
+              Tecnólogo em Eletrônica pela UTFPR com mais de 20 anos de experiência em manutenção de sistemas críticos e automação. Especialista em diagnóstico de precisão e reparos de alta complexidade.
             </p>
           </div>
 
@@ -42,8 +42,8 @@ export function Expert() {
                   <Eye className="w-5 h-5 text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-display font-700 text-white text-lg">Transparência</h4>
-                  <p className="text-sm text-slate-400 mt-1">Orçamento claro, sem taxas surpresas.</p>
+                  <h4 className="font-display font-700 text-white text-lg">Diagnóstico Avançado</h4>
+                  <p className="text-sm text-slate-400 mt-1">Experiência sênior em eletrônica industrial e de precisão.</p>
                 </div>
               </div>
               
@@ -52,8 +52,8 @@ export function Expert() {
                   <Wrench className="w-5 h-5 text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-display font-700 text-white text-lg">Bancada Própria</h4>
-                  <p className="text-sm text-slate-400 mt-1">Ferramental completo para micro-solda.</p>
+                  <h4 className="font-display font-700 text-white text-lg">Sistemas de RF e Telecom</h4>
+                  <p className="text-sm text-slate-400 mt-1">Conhecimento profundo em frequências, útil para antenas e drones.</p>
                 </div>
               </div>
               
@@ -62,8 +62,8 @@ export function Expert() {
                   <TestIcon className="w-5 h-5 text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-display font-700 text-white text-lg">{testLabel}</h4>
-                  <p className="text-sm text-slate-400 mt-1">Garantia que sai funcionando perfeitamente em mãos.</p>
+                  <h4 className="font-display font-700 text-white text-lg">Formação de Excelência</h4>
+                  <p className="text-sm text-slate-400 mt-1">Melhor rendimento do curso de Eletrônica da UTFPR (2003).</p>
                 </div>
               </div>
             </div>
