@@ -50,26 +50,26 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-28 pb-28 md:pt-40 md:pb-28 overflow-hidden min-h-screen flex items-center">
       <Particle top="20%" left="15%" size={8} delay={0} />
       <Particle top="60%" left="5%" size={4} delay={2} />
       <Particle top="30%" left="80%" size={6} delay={1} />
       <Particle top="70%" left="85%" size={10} delay={3} />
 
       <div 
-        className={`max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center relative z-10 transition-all duration-300 transform
+        className={`w-full max-w-7xl mx-auto px-4 sm:px-8 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center relative z-10 transition-all duration-300 transform
           ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
         `}
       >
-        <div className="reveal stagger">
+        <div className="reveal stagger w-full lg:w-1/2 min-w-0">
           <div className="flex items-center gap-2 mb-6">
-            <StatusDot />
-            <span className="font-mono text-xs tracking-widest text-cyan-400 uppercase">
+            <span className="shrink-0 flex"><StatusDot /></span>
+            <span className="font-mono text-[11px] sm:text-xs tracking-wider sm:tracking-widest text-cyan-400 uppercase break-words">
               {tagText}
             </span>
           </div>
 
-          <h1 className="font-display font-700 text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] mb-6">
+          <h1 className="font-display font-700 text-[2rem] sm:text-5xl md:text-6xl text-white leading-[1.1] mb-6 break-words">
             <span className="text-shimmer">{h1Text}</span>
           </h1>
 
@@ -77,12 +77,12 @@ export function Hero() {
             {subText}
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 mb-8">
             <a
               id="hero-whatsapp"
               href={WHATSAPP_URL[displayMode]}
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-base px-6 py-3.5 transition-colors shadow-lg shadow-wa/20"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-wa hover:bg-[#1fb958] text-white font-display font-700 text-base px-6 py-3.5 transition-colors shadow-lg shadow-wa/20"
             >
               <MessageCircle className="w-5 h-5" />
               {isDrones ? 'Orçamento Drone' : 'Orçamento Controle'}
@@ -91,14 +91,14 @@ export function Hero() {
               id="hero-ver-servicos"
               href="#servicos"
               onClick={scrollToServices}
-              className="group inline-flex items-center gap-2 rounded-md border border-line bg-bg-900/50 hover:border-cyan-400/50 hover:text-cyan-300 text-slate-200 font-display font-600 text-base px-6 py-3.5 transition-colors backdrop-blur-sm"
+              className="group inline-flex items-center justify-center gap-2 rounded-md border border-line bg-bg-900/50 hover:border-cyan-400/50 hover:text-cyan-300 text-slate-200 font-display font-600 text-base px-6 py-3.5 transition-colors backdrop-blur-sm"
             >
               Ver serviços
               <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-2 sm:gap-4">
             {badges.map(badge => (
               <span key={badge} className="px-3 py-1.5 rounded-full border border-cyan-400/20 bg-bg-900/50 text-xs font-mono text-cyan-300 backdrop-blur-sm">
                 {badge}
@@ -107,29 +107,29 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="reveal relative">
-          <HudFrame className="border border-line/70 bg-bg-900/70 rounded-lg p-6 sm:p-8 overflow-hidden relative">
+        <div className="reveal relative w-full lg:w-1/2 min-w-0 mb-8 lg:mb-0">
+          <HudFrame className="border border-line/70 bg-bg-900/70 rounded-lg p-5 sm:p-8 overflow-hidden relative">
             <div className="scan-line" />
             
-            <div className="flex items-center justify-between font-mono text-xs text-slate-500 mb-4 tracking-wider">
+            <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] sm:text-xs text-slate-500 mb-4 tracking-wider">
               <span>RELATÓRIO DE OCORRÊNCIA</span>
               <span className="flex items-center gap-1.5 text-cyan-300">
                 <StatusDot /> ATIVO
               </span>
             </div>
 
-            <div className="h-[250px] sm:h-[350px] flex items-center justify-center my-4 relative pointer-events-none">
-               <img src="/ufo.svg" alt="UFO" className="w-[70%] h-[70%] object-contain filter drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-700 hover:scale-105" />
+            <div className="h-[180px] sm:h-[300px] lg:h-[350px] flex items-center justify-center my-4 relative pointer-events-none">
+               <img src="/ufo.svg" alt="UFO" className="w-full max-w-[200px] sm:max-w-[280px] lg:max-w-none lg:w-[70%] h-auto max-h-full mx-auto object-contain filter drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-700 hover:scale-105" />
             </div>
 
-            <div className="space-y-2.5 font-mono text-xs mt-6">
+            <div className="space-y-2.5 font-mono text-[11px] sm:text-xs mt-6">
               {reportRows.map(([label, value]) => (
                 <div
                   key={label}
-                  className="flex items-center justify-between border-b border-line/60 pb-2 last:border-0 last:pb-0"
+                  className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 border-b border-line/60 pb-2 last:border-0 last:pb-0"
                 >
-                  <span className="text-slate-500">{label}</span>
-                  <span className="text-cyan-300">{value}</span>
+                  <span className="text-slate-500 shrink-0">{label}</span>
+                  <span className="text-cyan-300 text-right break-words min-w-0 ml-auto">{value}</span>
                 </div>
               ))}
             </div>
